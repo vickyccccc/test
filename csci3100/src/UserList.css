@@ -1,0 +1,186 @@
+.Popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+.Popup .Popuptext {
+    visibility: hidden;
+    width: 155px;
+    background-color: #555;
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    /* padding: 8px 0; */
+    position: absolute;
+    /* z-index: 1; */
+    bottom: 115%;
+    left: 58.5%;
+    margin-left: -80px;
+}
+
+.Popup .Popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.Popup .Show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+
+.SearchEngine {
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.SearchEngine button {
+    border: none;
+    background: none;
+}
+
+.SearchEngine img {
+    width: 25px;
+}
+
+.SearchEngine button:first-child {
+    margin-right: 5px;
+}
+
+.SearchEngine button:last-child {
+    margin-left: 5px; 
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.Action button {
+    border: none;
+    background: none;
+}
+
+.Action img {
+    width: 20px;
+}
+
+.Action input {
+    width: 100px;
+    border: none;
+}
+
+.TextBox input {
+    width: 45px;
+}
+
+.Profile {
+    background-color: #d6d4d5;
+    color: black;
+}
+
+.Form {
+    font-family: "Comic Sans MS";
+    padding: 28px;
+    font-size: 20px;
+}
+
+.AddUser {
+    font-size: 15px;
+}
+
+.Nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #cedcf6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Cooper Black;
+    font-size: 20px;
+}
+
+.Fix {
+    width: 150px;
+}
+
+.Left, .Right {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.Left {
+    text-align: left;
+    font-size: 15px;
+}
+
+.Right {
+    text-align: right;
+}
+
+.Left:hover, .Right:hover {
+    background-color: #d1dff9;
+}
+
+.Center {
+    flex-grow: 1;
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+}
+
+a:visited, a:link, a:hover {
+    color: black;
+}
+
+.UserInfo {
+    border-collapse: collapse;
+    text-align: center;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.UserInfo tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.UserInfo td, th {
+    border: 1px solid #ddd;
+}
+
+.UserInfo tr:nth-child(odd) {
+    background-color: #e6e6e6;
+}
+
+.UserInfo th, .UserInfo tr:nth-child(even) {
+    background-color: #9eb6dc;
+}
+
+.UserInfo tbody tr:hover {
+    background-color: #D6EEEE;
+}
