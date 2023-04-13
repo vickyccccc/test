@@ -223,8 +223,8 @@ export default function UserList() {
   return (
     <div className='background'>
       <nav className="box">
-        <button className="button CBroPage"><a herf="/courseList">
-          <us className="Browse"></us>Course Browsing Page</a></button>
+        <a href="/courseList"><button className="button CBroPage">
+          <us className="Browse"></us>Course Browsing Page</button></a>
         <div className="CUHK"> </div>
       </nav>
       
@@ -342,7 +342,7 @@ export default function UserList() {
         </div>
       </div>)}
 
-      <button className="button Logout"><a href="/login"><us className="lout"></us>Logout</a></button>
+      <a href="/login"><button className="button Logout"><us className="lout"></us>Logout</button></a>
 
     </div>
   )
