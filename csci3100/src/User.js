@@ -173,11 +173,8 @@ export default function User() {
           </tr>
         </table>
   
-        <button className="button Logout">
-          <a herf="login.html">
-            <us className="lout"></us>Logout
-          </a>
-        </button>
+        <a href="/login"><button className="button Logout"><us className="lout"></us>Logout</button></a>
+       
       </div>
     );
 }

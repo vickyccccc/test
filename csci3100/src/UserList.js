@@ -351,7 +351,7 @@ export default function UserList() {
                             ))}
                           </ul>
                         ) : (
-                          <p>&#160;&#160;&#160;No course</p>
+                          <p style={{textAlign:"center"}}>No course</p>
                         )}
                       </div>
                     )}
