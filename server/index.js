@@ -6,6 +6,9 @@ const cors = require("cors");
 app.use(cors());
 app.use(express.json());
 
+const sID = "1";
+// const cID = "CENG3420";
+
 // const db = mysql.createConnection({
 //   user: "root",
 //   host: "localhost",
@@ -201,9 +204,54 @@ app.put("/incap", (req, res) => {
   });
 });
 
-// app.listen(3001, () => {
-//   console.log("Yey, your server is running on port 3001");
-// });
+app.get("/userinfo", (req, res) => {
+  const id = req.params.id;
+  db.query("SELECT * FROM user WHERE userID = ?", sID, (err, result) => {
+      if (err) {
+          console.log(err);
+      } else {
+          res.send(result);
+      }
+  });
+});
+
+app.get('/getcourse', (req, res) => {
+  const id = req.params.id;
+  db.query("SELECT * FROM course C, reg S where S.userID = ? AND S.courseID = C.courseID", sID, (err, result) => {
+      if (err) {
+          console.log(err);
+      } else {
+          res.send(result);
+      }
+  });
+});
+
+app.put("/updatecap", (req, res) => {
+  const courseID = req.body.courseID;
+  const capacity = req.body.capacity;
+  db.query(
+    "UPDATE course SET capacity = ? WHERE courseID = ?",
+    [capacity, courseID],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    }
+  );
+});
+
+app.delete('/dropcourse/:id', (req, res) => {
+  const id = req.params.id;
+  db.query("DELETE FROM reg WHERE courseID = ?", id, (err, result) => {
+      if (err) {
+          console.log(err);
+      } else {
+          res.send(result);
+      }
+  });
+});
 
 app.listen(8800, () => {
   console.log("Yey, your server is running on port 8800");

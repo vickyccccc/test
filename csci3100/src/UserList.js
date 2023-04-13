@@ -220,6 +220,16 @@ export default function UserList() {
     }));
   };
 
+  const handleDelete = (userID)=>{
+    let text = "Are you sure to delete this user?";
+    if (window.confirm(text) === true) {
+      deleteUser(userID)
+    } else {
+      alert("You canceled");
+    }
+    return;
+  }
+
   return (
     <div className='background'>
       <nav className="box">
@@ -277,7 +287,7 @@ export default function UserList() {
 
       {showTable && (<div className="Result">
         <p>Search Result:</p>
-        <div className="Course">
+        <div className="User">
           <table>
             <thead>
               <tr>
@@ -321,15 +331,28 @@ export default function UserList() {
                   </td>
                   <td className='Action'>
                     <button onClick={() => {handleClick(user.userID);}}><img src={editlogo} alt="Edit" title='Edit' /></button>
-                    <button onClick={() => {deleteUser(user.userID);}}><img src={deletelogo} alt='Delete' title='Delete'/></button>
+                    <button onClick={() => {handleDelete(user.userID);}}><img src={deletelogo} alt='Delete' title='Delete'/></button>
                     <span className="Popup"><button className="Popup" onClick={(event) => {event.preventDefault(); handleList(user.userID);}}><img src={morelogo} alt='More details' title='More details' /></button>
-                    {user.showList && (
+                    {/* {user.showList && (
                       <div className='Popuptext Show'>
                         <ul>
                           {courseList.filter(courseID => courseID.userID === user.userID).map(x => (
                             <li key={x.courseID}>{x.courseID}</li>
                           ))}
                         </ul>
+                      </div>
+                    )} */}
+                    {user.showList && (
+                      <div className='Popuptext Show'>
+                        {courseList.filter(courseID => courseID.userID === user.userID).length > 0 ? (
+                          <ul>
+                            {courseList.filter(courseID => courseID.userID === user.userID).map(x => (
+                              <li key={x.courseID}>{x.courseID}</li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p>&#160;&#160;&#160;No course</p>
+                        )}
                       </div>
                     )}
                     </span> 

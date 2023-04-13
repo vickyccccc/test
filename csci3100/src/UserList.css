@@ -237,23 +237,24 @@
     text-shadow: 0.1px 0.1px 0.1px #000000;
 }
 
-.Course table {
+.User table {
     border-collapse: collapse;
     width: 100%;
     border: 3px solid #4f7eade2;
     table-layout: fixed;
 }
   
-.Course td {
+.User td {
     text-align: left;
     padding: 8px;
     font-family: Georgia, sans-serif;
     font-weight: normal;
     font-size: 17px;
+    border-bottom: 1px solid #d0cbcb;
 }
   
   
-.Course th {
+.User th {
     background-color: #4781a2e4;
     color: white;
     font-weight: bold;
