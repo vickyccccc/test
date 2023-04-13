@@ -7,7 +7,6 @@ import editlogo from './logo/Edit.png'
 import deletelogo from './logo/Delete.png'
 import morelogo from './logo/More.png'
 import updatelogo from './logo/Update.png'
-import searchlogo from './logo/Search.png'
 import addlogo from './logo/AddUser.png'
 
 export default function UserList() {
@@ -200,8 +199,11 @@ export default function UserList() {
     }));
   };
 
+  const [showTable, setShowTable] = useState(false);
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    setShowTable(true);
     getUser();
   };
 
@@ -219,105 +221,129 @@ export default function UserList() {
   };
 
   return (
-    <div>
-      <nav>
-        <ul className="Nav">
-          <li className='Fix'><a href="/courseList" className="Left">View Course Browsing Page</a></li>
-          <li className="Center">Admin Profile</li>
-          <li className='Fix'><a href="/login" className="Right">Logout</a></li>
-        </ul>
+    <div className='background'>
+      <nav className="box">
+        <button className="button CBroPage"><a herf="/courseList">
+          <us className="Browse"></us>Course Browsing Page</a></button>
+        <div className="CUHK"> </div>
       </nav>
-
-      <div className='SearchEngine'>
-        <form method="get" className="Form" onSubmit={handleSubmit}>
-          <label>Search user: </label>
-          <input type="text" placeholder='Input nothing to show all user' style={{width:"180px"}} onChange={(event) => {setKeyword(event.target.value);}}/>
-          <button type='Submit'><img src={searchlogo} alt='Search' title='Search'/></button>
+      
+      <div className="bar"></div>
+      
+      <div className="SearchBox">
+        <label>Search User : </label>
+        <br />
+        <form method="get" className="seng" onSubmit={handleSubmit}>
+          <input type="text" placeholder='input nothing to show all user...' onChange={(event) => {setKeyword(event.target.value);}}/>
+          <button type='Submit' value="Search"></button>
         </form>
-        <details className='AddUser'>
-          <summary><u>Add User?</u></summary>
-          <form>
-            <label>UserID: </label>
-            <input type="number" onChange={(event) => {setUserID(event.target.value);}} style={{width:"100px"}}/>
-            <label> Password: </label>
-            <input type="text" onChange={(event) => {setPassword(event.target.value);}} style={{width:"80px"}}/>
-            <label> Name: </label>
-            <input type="text" onChange={(event) => {setName(event.target.value);}} style={{width:"90px"}}/>
-            <label> Study Year: </label>
-            <input type="number" onChange={(event) => {setStudyYear(event.target.value);}} style={{width:"45px"}}/>
-            <label> Major: </label>
-            <input type="text" onChange={(event) => {setMajor(event.target.value);}} style={{width:"90px"}}/>
-            <label> Age: </label>
-            <input type="number" onChange={(event) => {setAge(event.target.value);}} style={{width:"45px"}}/>
-            <button onClick={(event) => {event.preventDefault(); addUser();}}><img src={addlogo} alt="Add" title='Add'/></button>
-          </form>
-        </details>
       </div>
 
-      <hr/>
-      <div>
-        <table className='UserInfo'>
-          <thead>
-            <tr>
-              <th>User ID</th>
-              <th>Password</th>
-              <th>Name</th>
-              <th>Study Year</th>
-              <th>Major</th>
-              <th>Age</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-          {userList.map(user=>(
-            <tr key={user.userID}>
-              <td>{user.userID}</td>
-              <td className='Action'>
-                {user.password}
-                {user.showInput && ( <span>&#160;<input type="text" placeholder={user.password} onChange={(event)=>{setNewPassword(event.target.value);}}/>
-                                <button onClick={() => {updateUserPassword(user.userID);}}><img src={updatelogo} alt="Update" title='Update'/></button></span>)}
-              </td>
-              <td className='Action'>
-                {user.name}
-                {user.showInput && ( <span>&#160;<input type="text" placeholder={user.name} onChange={(event)=>{setNewName(event.target.value);}}/>
-                                <button onClick={() => {updateUserName(user.userID);}}><img src={updatelogo} alt="Update" title='Update'/></button></span>)}
-              </td>
-              <td className='Action TextBox'>
-                {user.studyYear}
-                {user.showInput && ( <span>&#160;<input type="number" placeholder={user.studyYear} onChange={(event)=>{setNewStudyYear(event.target.value);}}/>
-                                <button onClick={() => {updateUserStudyYear(user.userID);}}><img src={updatelogo} alt="Update" title='Update'/></button></span>)}
-              </td>
-              <td className='Action'>
-                {user.major}
-                {user.showInput && ( <span>&#160;<input type="text" placeholder={user.major} onChange={(event)=>{setNewMajor(event.target.value);}}/>
-                                <button onClick={() => {updateUserMajor(user.userID);}}><img src={updatelogo} alt="Update" title='Update'/></button></span>)}
-              </td>              
-              <td className='Action TextBox'>
-                {user.age}
-                {user.showInput && ( <span>&#160;<input type="number" placeholder={user.age} onChange={(event)=>{setNewAge(event.target.value);}}/>
-                                <button onClick={() => {updateUserAge(user.userID);}}><img src={updatelogo} alt="Update" title='Update'/></button></span>)}
-              </td>
-              <td className='Action'>
-                <button onClick={() => {handleClick(user.userID);}}><img src={editlogo} alt="Edit" title='Edit' /></button>&#160;
-                <button onClick={() => {deleteUser(user.userID);}}><img src={deletelogo} alt='Delete' title='Delete'/></button>&#160;
-                <div className="Popup"><button onClick={(event) => {event.preventDefault(); handleList(user.userID);}}><img src={morelogo} alt='More details' title='More details' /></button>
-                {user.showList && (
-                  <div className='Popuptext Show'>
-                    <ul>
-                      {courseList.filter(courseID => courseID.userID === user.userID).map(x => (
-                        <li key={x.courseID}>{x.courseID}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-                </div> 
-
-              </td>
-            </tr>
-          ))}
-          </tbody>
-        </table>
+      <div className="Pro">
+          <p>Add user</p>
+          <p className="pim"></p>
+          <div className="info">
+            <form>
+              <table className='infotab'>
+                <tr>
+                    <th>UserID:</th>
+                    <td><input type="number" onChange={(event) => {setUserID(event.target.value);}}/></td>
+                </tr>
+                <tr>
+                    <th>Password:</th>
+                    <td><input type="text" onChange={(event) => {setPassword(event.target.value);}}/></td>
+                </tr>
+                <tr>
+                    <th>Name:</th>
+                    <td><input type="text" onChange={(event) => {setName(event.target.value);}}/></td>
+                </tr>
+                <tr>
+                    <th>Study Year:</th>
+                    <td><input type="number" onChange={(event) => {setStudyYear(event.target.value);}} pattern="[0-9]+" min="1" max="7" /></td>
+                </tr>
+                <tr>
+                    <th>Major:</th>
+                    <td><input type="text" onChange={(event) => {setMajor(event.target.value);}} /></td>
+                </tr>
+                <tr>
+                    <th>Age:</th>
+                    <td><input type="number" onChange={(event) => {setAge(event.target.value);}} pattern="[0-9]+" min="1" max="200" /></td>
+                </tr>
+              </table>
+              <button onClick={(event) => {event.preventDefault(); addUser();}} className='botton adduser'><img src={addlogo} alt="Add" title='Add'/> Add User</button>
+            </form>
+          </div>
       </div>
+
+      {showTable && (<div className="Result">
+        <p>Search Result:</p>
+        <div className="Course">
+          <table>
+            <thead>
+              <tr>
+                <th>User ID</th>
+                <th>Password</th>
+                <th>Name</th>
+                <th>Study Year</th>
+                <th>Major</th>
+                <th>Age</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {userList.map(user=>(
+                <tr key={user.userID}>
+                  <td>{user.userID}</td>
+                  <td className='Action'>
+                    {user.password}
+                    {user.showInput && ( <span><br /><input type="text" placeholder={user.password} onChange={(event)=>{setNewPassword(event.target.value);}}/>
+                                    <button onClick={() => {updateUserPassword(user.userID);}}><img src={updatelogo} alt="Update" title='Update'/></button></span>)}
+                  </td>
+                  <td className='Action'>
+                    {user.name}
+                    {user.showInput && ( <span><br /><input type="text" placeholder={user.name} onChange={(event)=>{setNewName(event.target.value);}}/>
+                                    <button onClick={() => {updateUserName(user.userID);}}><img src={updatelogo} alt="Update" title='Update'/></button></span>)}
+                  </td>
+                  <td className='Action'>
+                    {user.studyYear}
+                    {user.showInput && ( <span><br /><input type="number" placeholder={user.studyYear} onChange={(event)=>{setNewStudyYear(event.target.value);}} pattern="[0-9]+" min="1" max="7"/>
+                                    <button onClick={() => {updateUserStudyYear(user.userID);}}><img src={updatelogo} alt="Update" title='Update'/></button></span>)}
+                  </td>
+                  <td className='Action'>
+                    {user.major}
+                    {user.showInput && ( <span><br /><input type="text" placeholder={user.major} onChange={(event)=>{setNewMajor(event.target.value);}}/>
+                                    <button onClick={() => {updateUserMajor(user.userID);}}><img src={updatelogo} alt="Update" title='Update'/></button></span>)}
+                  </td>              
+                  <td className='Action'>
+                    {user.age}
+                    {user.showInput && ( <span><br /><input type="number" placeholder={user.age} onChange={(event)=>{setNewAge(event.target.value);}} pattern="[0-9]+" min="1" max="200"/>
+                                    <button onClick={() => {updateUserAge(user.userID);}}><img src={updatelogo} alt="Update" title='Update'/></button></span>)}
+                  </td>
+                  <td className='Action'>
+                    <button onClick={() => {handleClick(user.userID);}}><img src={editlogo} alt="Edit" title='Edit' /></button>
+                    <button onClick={() => {deleteUser(user.userID);}}><img src={deletelogo} alt='Delete' title='Delete'/></button>
+                    <span className="Popup"><button className="Popup" onClick={(event) => {event.preventDefault(); handleList(user.userID);}}><img src={morelogo} alt='More details' title='More details' /></button>
+                    {user.showList && (
+                      <div className='Popuptext Show'>
+                        <ul>
+                          {courseList.filter(courseID => courseID.userID === user.userID).map(x => (
+                            <li key={x.courseID}>{x.courseID}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                    </span> 
+
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>)}
+
+      <button className="button Logout"><a href="/login"><us className="lout"></us>Logout</a></button>
+
     </div>
   )
 }

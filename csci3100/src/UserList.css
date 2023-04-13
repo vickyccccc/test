@@ -1,3 +1,323 @@
+.background {
+    background-image: url('logo/sbg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+    min-height: 1200px;
+    padding: 10px;
+    margin: -10px;
+}
+
+.CUHK {
+    height: 100px;
+    width: 130px;
+    float: right;
+    background-image: url('logo/LOGO.png');
+    background-repeat: no-repeat;
+    background-size: 90%;
+    margin: 10px;
+    opacity: 0.95;
+}
+
+.box {
+    background-color: rgba(255, 254, 254, 0.684);
+    max-width: 2500px;
+    height: 110px;
+    margin: auto;
+}
+
+.bar {
+    background-color: rgb(56, 67, 122);
+    max-width: 2500px;
+    height: 7px;
+    margin: auto;
+}
+
+.button {
+    background-color: #b080d7;
+    border: none;
+    color: white;
+    padding: 10px 11px;
+    padding-left: 3px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+  
+.CBroPage {
+    background-color: #49759e;
+    border: 2px solid #49759e;
+    margin-top: 35px;
+    margin-left: 20px;
+    height: 50px;
+    width: auto;
+    padding-top: 14px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Georgia, serif;
+    text-shadow: 0.8px 0.8px 0.8px #000000;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.24);
+    color: white;
+}
+  
+.CBroPage:hover {
+    background-color: rgba(203, 211, 235, 0.25);
+    color: black;
+
+}
+
+.Browse {
+    height: 60px;
+    width: 50px;
+    float: left;
+    background-image: url('logo/sicon.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-top: -4px;
+}
+
+.SearchBox {
+    background-color: rgba(200, 219, 238, 0.667);
+    width: 800px;
+    height: 100px;
+    border: 2px solid #ffffff00;
+    padding: 50px; 
+    padding-left: 70px;
+    padding-right: 20px;
+    border-radius: 25px;
+    margin-top: 70px;
+    margin-left: 20%;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.24);
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Georgia, serif;
+    text-shadow: 0.1px 0.1px 0.1px #000000;
+}
+
+.seng input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid rgb(11, 47, 85);
+    width: 650px;
+    height: 30px;
+    margin-top: 15px;
+    background: rgba(255, 254, 254, 0.735);
+}
+  
+.seng button {
+    width: 50px;
+    height: 50px;
+    padding: 25px;
+    background: #2195f300;
+    color: white;
+    font-size: 17px;
+    border: 1px solid rgba(128, 128, 128, 0);
+    border-left: none;
+    cursor: pointer;
+    background-image: url('logo/sicon.png');
+    background-repeat: no-repeat;
+    background-size: 130%;
+}
+  
+.seng button:hover {
+    background-image: url('logo/sicon.png');
+    background-repeat: no-repeat;
+    background-size: 130%;
+}
+
+.Pro {
+    float: right;
+    margin-right: 2%;
+    background-color: rgba(240, 240, 243, 0.881);
+    width: 18%;
+    min-height: 480px;
+    border: 1px solid #dadfe5ae;
+    padding: 30px;
+    padding-top: 20px;
+    border-radius: 5px;
+    margin-top: -55px;
+    margin-left: 4%;
+    font-size: 25px;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+    font-family: Georgia, serif;
+    text-align: center;
+    text-shadow: 0.1px 0.1px 0.1px #000000;
+    box-shadow: 8px 8px 10px 8px rgba(0, 0, 0, 0.24);  
+}
+  
+.pim {
+    height: 150px;
+    width: 150px;
+    float: left;
+    background-image: url('logo/pimg.png');
+    background-repeat: no-repeat;
+    background-size: 101%;
+    margin-top: 15px;
+    margin-left: 24%;
+    border-radius: 120px;
+    border: 4px solid #dcdcdc;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.24);
+}
+
+.infotab {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 17px;
+}
+  
+.infotab th {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 2px solid #51707e2a;
+    height: 25px;
+}
+  
+.infotab td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 2px solid #51707e40;
+    font-weight: normal;
+}
+
+.infotab input[type=text], input[type=number], input[type=password] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 9px;
+    margin-right: 10px;
+    display: inline-block;
+    border: 1.5px solid #8895a4b5;
+    box-sizing: border-box;
+    font-family: "Courier", serif;
+    font-size: 13px;
+    margin-left: 0px;
+    box-shadow: 0px 2px 2px 0 rgba(0, 0, 0, 0.24);
+}
+  
+.infotab input[type=text]:focus, input[type=number]:focus, input[type=password]:focus {
+    background-color: #dddddd66;
+    outline: none;
+    color: #010101;
+}
+
+.adduser img {
+    width: 30px;
+    margin-top: 20px;
+}
+
+.adduser {
+    border: none;
+    background: none;
+    margin-top: 15px;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: Georgia, serif;
+    font-weight: bold;
+}
+
+.Result {
+    background-color: rgba(248, 248, 249, 0.811);
+    width: 68%;
+    height: auto;
+    border: 1px solid #dadfe5ae;
+    padding: 30px; 
+    padding-left: 30px;
+    padding-bottom: 60px;
+    border-radius: 5px;
+    margin-top: 30px;
+    margin-left: 3%;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+    font-family: Georgia, serif;
+    text-shadow: 0.1px 0.1px 0.1px #000000;
+}
+
+.Course table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 3px solid #4f7eade2;
+    table-layout: fixed;
+}
+  
+.Course td {
+    text-align: left;
+    padding: 8px;
+    font-family: Georgia, sans-serif;
+    font-weight: normal;
+    font-size: 17px;
+}
+  
+  
+.Course th {
+    background-color: #4781a2e4;
+    color: white;
+    font-weight: bold;
+    font-family: Georgia, serif;
+    padding: 8px;
+    text-align: left;
+}
+
+.Logout {
+    background-color: #456f96;
+    color: white;
+    margin-top: 35px;
+    margin-left: 20px;
+    height: 50px;
+    width: 110px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Georgia, serif;
+    text-shadow: 0.8px 0.8px 0.8px #000000;
+    position: fixed;
+    bottom: 12px;
+    left: 16px;
+  }
+
+.Logout:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.24);
+    background-color: rgb(97, 146, 195);
+    border: 2px solid #5588bc;
+    position: fixed;
+    bottom: 12px;
+    left: 16px;
+}
+
+a:visited, a:link, a:hover {
+    color: white;
+    text-decoration: none;
+}
+  
+.lout {
+    height: 20px;
+    width: 25px;
+    float: left;
+    background-image: url('logo/logout.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-bottom: 0px;
+}
+
+.Action button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.Action img {
+    width: 30px;
+}
+
+.Action input {
+    width: 100px;
+    border: none;
+}
+
 .Popup {
     position: relative;
     display: inline-block;
@@ -15,9 +335,7 @@
     color: #fff;
     text-align: left;
     border-radius: 6px;
-    /* padding: 8px 0; */
     position: absolute;
-    /* z-index: 1; */
     bottom: 115%;
     left: 58.5%;
     margin-left: -80px;
@@ -34,14 +352,62 @@
     border-color: #555 transparent transparent transparent;
 }
 
-/* Toggle this class - hide and show the popup */
 .Popup .Show {
     visibility: visible;
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s;
 }
 
-/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+
+/* .Popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+.Popup .Popuptext {
+    visibility: hidden;
+    width: 155px;
+    background-color: #555;
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    position: absolute;
+    bottom: 115%;
+    left: 58.5%;
+    margin-left: -80px;
+}
+
+.Popup .Popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.Popup .Show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
 @-webkit-keyframes fadeIn {
     from {opacity: 0;} 
     to {opacity: 1;}
@@ -183,4 +549,4 @@ a:visited, a:link, a:hover {
 
 .UserInfo tbody tr:hover {
     background-color: #D6EEEE;
-}
+} */
