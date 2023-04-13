@@ -232,29 +232,29 @@ export default function UserList() {
 
   return (
     <div className='background'>
-      <nav className="box">
-        <a href="/courseList"><button className="button CBroPage">
-          <us className="Browse"></us>Course Browsing Page</button></a>
-        <div className="CUHK"> </div>
+      <nav className="boxa">
+        <a href="/courseList"><button className="buttona CBroPagea">
+          <us className="Browsea"></us>Course Browsing Page</button></a>
+        <div className="CUHKa"> </div>
       </nav>
       
-      <div className="bar"></div>
+      <div className="bara"></div>
       
-      <div className="SearchBox">
+      <div className="SearchBoxa">
         <label>Search User : </label>
         <br />
-        <form method="get" className="seng" onSubmit={handleSubmit}>
+        <form method="get" className="senga" onSubmit={handleSubmit}>
           <input type="text" placeholder='input nothing to show all user...' onChange={(event) => {setKeyword(event.target.value);}}/>
           <button type='Submit' value="Search"></button>
         </form>
       </div>
 
-      <div className="Pro">
-          <p>Add user</p>
-          <p className="pim"></p>
-          <div className="info">
+      <div className="Proa">
+          <p><b>ADD USER</b></p>
+          <p className="pima"></p>
+          <div className="infoa">
             <form>
-              <table className='infotab'>
+              <table className='infotaba'>
                 <tr>
                     <th>UserID:</th>
                     <td><input type="number" onChange={(event) => {setUserID(event.target.value);}}/></td>
@@ -280,14 +280,14 @@ export default function UserList() {
                     <td><input type="number" onChange={(event) => {setAge(event.target.value);}} pattern="[0-9]+" min="1" max="200" /></td>
                 </tr>
               </table>
-              <button onClick={(event) => {event.preventDefault(); addUser();}} className='botton adduser'><img src={addlogo} alt="Add" title='Add'/> Add User</button>
+              <button onClick={(event) => {event.preventDefault(); addUser();}} className='bottona addusera'><img src={addlogo} alt="Add" title='Add'/> Add User</button>
             </form>
           </div>
       </div>
 
-      {showTable && (<div className="Result">
+      {showTable && (<div className="Resulta">
         <p>Search Result:</p>
-        <div className="User">
+        <div className="Usera">
           <table>
             <thead>
               <tr>
@@ -365,7 +365,7 @@ export default function UserList() {
         </div>
       </div>)}
 
-      <a href="/login"><button className="button Logout"><us className="lout"></us>Logout</button></a>
+      <a href="/login"><button className="buttona Logouta"><us className="louta"></us>Logout</button></a>
 
     </div>
   )
