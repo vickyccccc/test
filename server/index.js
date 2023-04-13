@@ -6,7 +6,6 @@ const cors = require("cors");
 app.use(cors());
 app.use(express.json());
 
-const sID = "1";
 // const cID = "CENG3420";
 
 // const db = mysql.createConnection({
@@ -65,27 +64,27 @@ app.get("/user", (req, res) => {
 app.get("/userbyid", (req, res) => {
   const keyword = req.query.keyword;
   db.query("SELECT * FROM user WHERE userID LIKE ? ORDER BY userID ASC",
-  [`%${keyword}%`],
+    [`%${keyword}%`],
     (err, result) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send(result);
-    }
-  });
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    });
 });
 
 app.get("/usercourse", (req, res) => {
   const userID = req.query.userID;
   db.query("SELECT * FROM reg WHERE userID = ? ORDER BY courseID ASC",
-    [userID], 
+    [userID],
     (err, result) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send(result);
-    }
-  });
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    });
 });
 
 app.put("/updatepassword", (req, res) => {
@@ -119,68 +118,68 @@ app.put("/updatename", (req, res) => {
   );
 });
 app.put("/updateyear", (req, res) => {
-    const userID = req.body.userID;
-    const studyYear = req.body.studyYear;
-    db.query(
-      "UPDATE user SET studyYear = ? WHERE userID = ?",
-      [studyYear, userID],
-      (err, result) => {
-        if (err) {
-          console.log(err);
-        } else {
-          res.send(result);
-        }
+  const userID = req.body.userID;
+  const studyYear = req.body.studyYear;
+  db.query(
+    "UPDATE user SET studyYear = ? WHERE userID = ?",
+    [studyYear, userID],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
       }
-    );
-  });
-  app.put("/updatemajor", (req, res) => {
-    const userID = req.body.userID;
-    const major = req.body.major;
-    db.query(
-      "UPDATE user SET major = ? WHERE userID = ?",
-      [major, userID],
-      (err, result) => {
-        if (err) {
-          console.log(err);
-        } else {
-          res.send(result);
-        }
+    }
+  );
+});
+app.put("/updatemajor", (req, res) => {
+  const userID = req.body.userID;
+  const major = req.body.major;
+  db.query(
+    "UPDATE user SET major = ? WHERE userID = ?",
+    [major, userID],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
       }
-    );
-  });
-  app.put("/updateage", (req, res) => {
-    const userID = req.body.userID;
-    const age = req.body.age;
-    db.query(
-      "UPDATE user SET age = ? WHERE userID = ?",
-      [age, userID],
-      (err, result) => {
-        if (err) {
-          console.log(err);
-        } else {
-          res.send(result);
-        }
+    }
+  );
+});
+app.put("/updateage", (req, res) => {
+  const userID = req.body.userID;
+  const age = req.body.age;
+  db.query(
+    "UPDATE user SET age = ? WHERE userID = ?",
+    [age, userID],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
       }
-    );
-  });
-  // app.put("/updateuser", (req, res) => {
-  //   const userID = req.body.userID;
-  //   const name = req.body.name;
-  //   const studyYear = req.body.studyYear;
-  //   const major = req.body.major;
-  //   const age = req.body.age;
-  //   db.query(
-  //     "UPDATE user SET name = ? , studyYear = ? , major = ? , age = ? WHERE userID = ?",
-  //     [name, studyYear, major, age, userID],
-  //     (err, result) => {
-  //       if (err) {
-  //         console.log(err);
-  //       } else {
-  //         res.send(result);
-  //       }
-  //     }
-  //   );
-  // });
+    }
+  );
+});
+// app.put("/updateuser", (req, res) => {
+//   const userID = req.body.userID;
+//   const name = req.body.name;
+//   const studyYear = req.body.studyYear;
+//   const major = req.body.major;
+//   const age = req.body.age;
+//   db.query(
+//     "UPDATE user SET name = ? , studyYear = ? , major = ? , age = ? WHERE userID = ?",
+//     [name, studyYear, major, age, userID],
+//     (err, result) => {
+//       if (err) {
+//         console.log(err);
+//       } else {
+//         res.send(result);
+//       }
+//     }
+//   );
+// });
 
 app.delete("/deleteuser/:id", (req, res) => {
   const id = req.params.id;
@@ -204,26 +203,30 @@ app.put("/incap", (req, res) => {
   });
 });
 
-app.get("/userinfo", (req, res) => {
+app.get("/Profile/:id", (req, res) => {
   const id = req.params.id;
-  db.query("SELECT * FROM user WHERE userID = ?", sID, (err, result) => {
-      if (err) {
-          console.log(err);
-      } else {
-          res.send(result);
-      }
+  db.query("SELECT * FROM user WHERE userID = ?", id, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
   });
 });
 
-app.get('/getcourse', (req, res) => {
+app.get("/Profile/:id/getcourse", (req, res) => {
   const id = req.params.id;
-  db.query("SELECT * FROM course C, reg S where S.userID = ? AND S.courseID = C.courseID", sID, (err, result) => {
+  db.query(
+    "SELECT * FROM course C, reg S where S.userID = ? AND S.courseID = C.courseID",
+    id,
+    (err, result) => {
       if (err) {
-          console.log(err);
+        console.log(err);
       } else {
-          res.send(result);
+        res.send(result);
       }
-  });
+    }
+  );
 });
 
 app.put("/updatecap", (req, res) => {
@@ -242,15 +245,46 @@ app.put("/updatecap", (req, res) => {
   );
 });
 
-app.delete('/dropcourse/:id', (req, res) => {
+app.delete("/dropcourse/:id", (req, res) => {
   const id = req.params.id;
   db.query("DELETE FROM reg WHERE courseID = ?", id, (err, result) => {
-      if (err) {
-          console.log(err);
-      } else {
-          res.send(result);
-      }
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
   });
+});
+
+app.get("/userLogin", (req, res) => {
+  const { userID, password } = req.query;
+  // Retrieve user information from MySQL database
+  const queryString = 'SELECT * FROM user WHERE userID = ?';
+  db.query(queryString, [userID], (err, results) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Server error');
+    } else if (results.length === 0) {
+      res.status(401).send('User not found');
+    } else if (results[0].password !== password) {
+      res.status(401).send('Invalid password');
+    } else {
+      res.status(200).send('Login successful');
+    }
+  });
+});
+
+app.get('/Profile/:uID', (req, res) => {
+  const uID = parseInt(req.params.uID);
+  db.query("SELECT * FROM user WHERE userID = ?",
+    [`%${uID}%`],
+    (err, result) => {
+      if (err) {
+        res.status(401).send('Unauthorized');
+      } else {
+        res.send(result);
+      }
+    });
 });
 
 app.listen(8800, () => {

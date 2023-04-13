@@ -257,27 +257,27 @@ export default function UserList() {
               <table className='infotaba'><tbody>
                 <tr>
                     <th>UserID:</th>
-                    <td><input type="number" onChange={(event) => {setUserID(event.target.value);}}/></td>
+                    <td><input className='ou' type="number" onChange={(event) => {setUserID(event.target.value);}}/></td>
                 </tr>
                 <tr>
                     <th>Password:</th>
-                    <td><input type="text" onChange={(event) => {setPassword(event.target.value);}}/></td>
+                    <td><input className='ou' type="text" onChange={(event) => {setPassword(event.target.value);}}/></td>
                 </tr>
                 <tr>
                     <th>Name:</th>
-                    <td><input type="text" onChange={(event) => {setName(event.target.value);}}/></td>
+                    <td><input className='ou' type="text" onChange={(event) => {setName(event.target.value);}}/></td>
                 </tr>
                 <tr>
                     <th>Study Year:</th>
-                    <td><input type="number" onChange={(event) => {setStudyYear(event.target.value);}} pattern="[0-9]+" min="1" max="7" /></td>
+                    <td><input className='ou' type="number" onChange={(event) => {setStudyYear(event.target.value);}} pattern="[0-9]+" min="1" max="7" /></td>
                 </tr>
                 <tr>
                     <th>Major:</th>
-                    <td><input type="text" onChange={(event) => {setMajor(event.target.value);}} /></td>
+                    <td><input className='ou' type="text" onChange={(event) => {setMajor(event.target.value);}} /></td>
                 </tr>
                 <tr>
                     <th>Age:</th>
-                    <td><input type="number" onChange={(event) => {setAge(event.target.value);}} pattern="[0-9]+" min="1" max="200" /></td>
+                    <td><input className='ou' type="number" onChange={(event) => {setAge(event.target.value);}} pattern="[0-9]+" min="1" max="200" /></td>
                 </tr>
                 </tbody></table>
               <button onClick={(event) => {event.preventDefault(); addUser();}} className='bottona addusera'><img src={addlogo} alt="Add" title='Add'/> Add User</button>
