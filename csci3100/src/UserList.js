@@ -234,7 +234,7 @@ export default function UserList() {
     <div className='background'>
       <nav className="boxa">
         <a href="/courseList"><button className="buttona CBroPagea">
-          <us className="Browsea"></us>Course Browsing Page</button></a>
+          <p className="Browsea"></p>Course Browsing Page</button></a>
         <div className="CUHKa"> </div>
       </nav>
       
@@ -254,7 +254,7 @@ export default function UserList() {
           <p className="pima"></p>
           <div className="infoa">
             <form>
-              <table className='infotaba'>
+              <table className='infotaba'><tbody>
                 <tr>
                     <th>UserID:</th>
                     <td><input type="number" onChange={(event) => {setUserID(event.target.value);}}/></td>
@@ -279,7 +279,7 @@ export default function UserList() {
                     <th>Age:</th>
                     <td><input type="number" onChange={(event) => {setAge(event.target.value);}} pattern="[0-9]+" min="1" max="200" /></td>
                 </tr>
-              </table>
+                </tbody></table>
               <button onClick={(event) => {event.preventDefault(); addUser();}} className='bottona addusera'><img src={addlogo} alt="Add" title='Add'/> Add User</button>
             </form>
           </div>
@@ -365,7 +365,7 @@ export default function UserList() {
         </div>
       </div>)}
 
-      <a href="/login"><button className="buttona Logouta"><us className="louta"></us>Logout</button></a>
+      <a href="/login"><button className="buttona Logouta"><span className="louta"></span>Logout</button></a>
 
     </div>
   )
