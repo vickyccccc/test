@@ -133,18 +133,18 @@ export default function UserRegForm() {
                         <re> *Required Information</re>
                         <p>
                             <pre>
-                            <label htmlFor='name'><re>*</re>Full Name:</label>                      <label htmlFor="student-id"><re>*</re>Student ID:</label>
+                            <label htmlFor='name'><re>*</re>Full Name:</label>                    <label htmlFor="student-id"><re>*</re>Student ID:</label>
                             <br/>
                             <input type="text" placeholder="e.g. Chan Tai Man" id="name" name="name" required value={name} onChange={handleInputChange}/><input type="number" placeholder="e.g. 115515xxxx" id="student-id" name="student-id" required pattern="[0-9]{10}" value={studentID} onChange={handleInputChange}/>
                             <br/>
-                            <label htmlFor="password"><re>*</re>Set Password:</label>                    <label htmlFor="repeat-password"><re>*</re>Repeat Password:</label>
+                            <label htmlFor="password"><re>*</re>Set Password:</label>                  <label htmlFor="repeat-password"><re>*</re>Repeat Password:</label>
                             <br/>
                             <input type="password" placeholder="Password" id="password" name="password" required value={password} onChange={handlePasswordChange}/><span className="eye-icon" onClick={handlePasswordToggle}>&#128065;</span>
                             <input type="password" placeholder="Repeat Password" id="repeat-password" name="repeat-password" required style={{ marginLeft: "115px" }} value={repeatPassword} onChange={handleRepeatPasswordChange}/><span className="eye-icon" onClick={handlePasswordToggle}>&#128065;</span>
                             <br/>
                             <label style={{ color: "#da3232" }}><re></re>{comparePasswords}</label>
                             <br/>
-                            <label htmlFor="major"><re>*</re>Study Major:</label>                      <label htmlFor="study-year"><re>*</re>Study Year:</label>
+                            <label htmlFor="major"><re>*</re>Study Major:</label>                   <label htmlFor="study-year"><re>*</re>Study Year:</label>
                             <br/>
                             <div className="ThisIsSelect">
                             <select className='Mainselect' id="major" placeholder="Major" name="major" required value={major} onChange={handleInputChange}>

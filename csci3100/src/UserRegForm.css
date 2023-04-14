@@ -49,12 +49,12 @@
 
   
   .Loginbtn {
-    background-color: #49759e;
-    border: 1.3px solid #49759e;
+    background-color: #f4f4f4e7;
+    border: 2px solid #49759e;
     margin-top: 23.3px;
     margin-left: 13.4px;
-    height: 33.5px;
-    width: auto;
+    height: 35px;
+    width: 120px;
     padding-top: 9.3px;
     border-radius: 5.7px;
     font-size: 10px;
@@ -62,7 +62,7 @@
     font-family: Georgia, serif;
     text-shadow: 0.5px 0.5px 0.5px #000000;
     box-shadow: 0 5.7px 10.3px 0 rgba(0, 0, 0, 0.24);
-    color: white;
+    color: rgb(0, 0, 0);
   
   }
   
