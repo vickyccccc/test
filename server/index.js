@@ -357,8 +357,8 @@ app.get("/getcoursebytd", (req, res) => {
   const filterTime = req.query.filterTime;
   const filterDep = req.query.filterDep;
   db.query(
-    "SELECT * FROM course C where (C.courseID LIKE ? OR C.name Like ? OR C.location like ? OR C.instructor like ?) AND C.time Like ? AND C.department = ?",
-    [`%${keyword}%`, `%${keyword}%`, `%${keyword}%`, `%${keyword}%`, [`%${filterTime}%`], [`%${filterDep}%`]],
+    "SELECT * FROM course C where (C.courseID LIKE ? OR C.name Like ?) AND (C.time Like ? AND C.department = ?)",
+    [`%${keyword}%`, `%${keyword}%` ,`%${filterTime}%`, filterDep],
     (err, result) => {
       if (err) {
         console.log(err);

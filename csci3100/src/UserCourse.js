@@ -53,19 +53,19 @@ export default function UserCourse() {
       }).then((response) => {
         setCourseList(response.data);
       });
-    } else if (filterTime !== "All") {
+    } else if (filterTime !== "All" && filterDep === "All") {
       Axios.get("http://localhost:8800/getcoursebytime", {
         params: { keyword: keyword, filterTime: filterTime },
       }).then((response) => {
         setCourseList(response.data);
       });
-    } else if (filterDep !== "All") {
+    } else if (filterTime === "All" && filterDep !== "All") {
       Axios.get("http://localhost:8800/getcoursebydep", {
         params: { keyword: keyword, filterDep: filterDep },
       }).then((response) => {
         setCourseList(response.data);
       });
-    } else {
+    } else if((filterTime !== "All" && filterDep !== "All")){
       Axios.get("http://localhost:8800/getcoursebytd", {
         params: {
           keyword: keyword,
