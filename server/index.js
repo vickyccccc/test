@@ -287,6 +287,249 @@ app.get('/Profile/:uID', (req, res) => {
     });
 });
 
+//User Course Browsing Page
+app.post("/UserCourse/:id/reg/", (req, res) => {
+  const id = req.params.id;
+  const courseID = req.body.courseID;
+
+  db.query(
+    "INSERT INTO reg(userID, courseID) VALUES (?,?)",
+    [id, courseID],
+    (err, result) => {
+      if (err) {
+        res.send({message:"The course was already added!"});
+      } else {
+          res.send("Value Inserted");
+      }
+    }
+  );
+});
+
+app.get("/getcour", (req, res) => {
+  const keyword = req.query.keyword;
+  db.query(
+    "SELECT * FROM course C WHERE C.courseID LIKE ? OR C.name Like ?",
+    [`%${keyword}%`, [`%${keyword}%`]],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    }
+  );
+});
+
+app.get("/getcoursebytime", (req, res) => {
+  const keyword = req.query.keyword;
+  const filterTime = req.query.filterTime;
+  db.query(
+    "SELECT * FROM course C where (C.courseID LIKE ? OR C.name Like ?) AND C.time Like ? ",
+    [`%${keyword}%`, `%${keyword}%`, [`%${filterTime}%`]],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    }
+  );
+});
+
+app.get("/getcoursebydep", (req, res) => {
+  const keyword = req.query.keyword;
+  const filterDep = req.query.filterDep;
+  db.query(
+    "SELECT * FROM course C where (C.courseID LIKE ? OR C.name Like ?) AND C.department = ?",
+    [`%${keyword}%` , `%${keyword}%`, filterDep],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    }
+  );
+});
+
+app.get("/getcoursebytd", (req, res) => {
+  const keyword = req.query.keyword;
+  const filterTime = req.query.filterTime;
+  const filterDep = req.query.filterDep;
+  db.query(
+    "SELECT * FROM course C where (C.courseID LIKE ? OR C.name Like ?) AND C.time Like ? AND C.department = ?",
+    [`%${keyword}%`, `%${keyword}%` ,[`%${filterTime}%`], [`%${filterDep}%`]],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    }
+  );
+});
+
+
+//admin CBP
+app.delete("/deleteCourse/:id", (req, res) => {
+  const id = req.params.id;
+  db.query("DELETE FROM course WHERE courseID = ?", id, (err, result) => {
+      if (err) {
+          console.log(err);
+      } else {
+          res.send(result);
+      }
+  });
+});
+app.get("/course", (req, res) => {
+  db.query("SELECT * FROM course ORDER BY courseID ASC", (err, result) => {
+      if (err) {
+          console.log(err);
+      } else {
+          res.send(result);
+      }
+  });
+});
+app.get("/courseByID", (req, res) => {
+  const keyword = req.query.keyword;
+  db.query("SELECT * FROM course WHERE (courseID LIKE ?) OR (name like ? )OR (time like ? ) OR  (department like ? ) OR (location like ?) OR (instructor like ?) ORDER BY courseID ASC",
+      [`%${keyword}%`, `%${keyword}%`, `%${keyword}%`, `%${keyword}%`,  `%${keyword}%`,  `%${keyword}%`],
+      (err, result) => {
+          if (err) {
+              console.log(err);
+          } else {
+              res.send(result);
+          }
+      });
+});
+app.post("/course/insert", (req, res) => {
+  const courseID = req.body.courseID;
+  const name = req.body.name;
+  const time = req.body.time;
+  const location = req.body.location;
+  const department = req.body.department;
+  const instructor = req.body.instructor;
+  const capacity = req.body.capacity;
+  db.query(
+      "INSERT INTO course (courseID, name, time, location, department, instructor, capacity) VALUES (?,?,?,?,?,?,?)",
+      [courseID, name, time, location, department, instructor, capacity],
+      (err, result) => {
+          if (err) {
+              console.log(err);
+              res.send(err);
+          } else {
+              res.send("Values Inserted");
+          }
+      }
+  );
+});
+app.put("/updateCourseName", (req, res) => {
+  const courseID = req.body.courseID;
+  const name = req.body.name;
+  db.query(
+      "UPDATE course SET name = ? WHERE courseID = ?",
+      [name, courseID],
+      (err, result) => {
+          if (err) {
+              console.log(err);
+          } else {
+              res.send(result);
+          }
+      }
+  );
+});
+app.put("/updateTime", (req, res) => {
+  const courseID = req.body.courseID;
+  const time = req.body.time;
+  db.query(
+      "UPDATE course SET time = ? WHERE courseID = ?",
+      [time, courseID],
+      (err, result) => {
+          if (err) {
+              console.log(err);
+          } else {
+              res.send(result);
+          }
+      }
+  );
+});
+app.put("/updateLocation", (req, res) => {
+  const courseID = req.body.courseID;
+  const location = req.body.location;
+  db.query(
+      "UPDATE course SET location = ? WHERE courseID = ?",
+      [location, courseID],
+      (err, result) => {
+          if (err) {
+              console.log(err);
+          } else {
+              res.send(result);
+          }
+      }
+  );
+});
+app.put("/updateDepartment", (req, res) => {
+  const courseID = req.body.courseID;
+  const department = req.body.department;
+  db.query(
+      "UPDATE course SET department = ? WHERE courseID = ?",
+      [department, courseID],
+      (err, result) => {
+          if (err) {
+              console.log(err);
+          } else {
+              res.send(result);
+          }
+      }
+  );
+});
+app.put("/updateInstructor", (req, res) => {
+  const courseID = req.body.courseID;
+  const instructor = req.body.instructor;
+  db.query(
+      "UPDATE course SET instructor = ? WHERE courseID = ?",
+      [instructor, courseID],
+      (err, result) => {
+          if (err) {
+              console.log(err);
+          } else {
+              res.send(result);
+          }
+      }
+  );
+});
+app.put("/updateCapacity", (req, res) => {
+  const courseID = req.body.courseID;
+  const capacity = req.body.capacity;
+  db.query(
+      "UPDATE course SET capacity = ? WHERE courseID = ?",
+      [capacity, courseID],
+      (err, result) => {
+          if (err) {
+              console.log(err);
+          } else {
+              res.send(result);
+          }
+      }
+  );
+});
+app.put("/uploadOutline", (req, res) => {
+  const courseID = req.body.courseID;
+  const outline = req.body.outline;
+  db.query(
+      "UPDATE course SET CourseOutline = ? WHERE courseID = ?",
+      [outline, courseID],
+      (err, result) => {
+          if (err) {
+              console.log(err);
+          } else {
+              res.send(result);
+          }
+      }
+  );
+});
+
+
 app.listen(8800, () => {
   console.log("Yey, your server is running on port 8800");
 });

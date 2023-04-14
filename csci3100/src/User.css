@@ -57,7 +57,7 @@
     border: 1.3px solid #49759e;
     margin-top: 23.3px;
     margin-left: 13.4px;
-    height: 33.5px;
+    height: 34px;
     width: auto;
     padding-top: 9.3px;
     border-radius: 5.7px;
@@ -90,7 +90,7 @@
     color: white;
     margin-top: 23.3px;
     margin-left: 13.3px;
-    height: 33.3px;
+    height: 34px;
     width: 80px;
     border-radius: 8px;
     font-size: 10px;
@@ -219,7 +219,7 @@
     text-shadow: 1px 1px 1px #000000;
   }
   
-  .Course {
+  .CCourse {
     background-color: rgba(218, 226, 235, 0.821);
     width: 700px;
     height: auto;
@@ -238,7 +238,7 @@
     box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.24);
   }
   
-  .Dcourse {
+  .DDcourse {
     background-color: #4f7eadd3;
     border: 1px solid #4b83bc;
     color: rgb(253, 253, 253);

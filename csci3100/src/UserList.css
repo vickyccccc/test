@@ -32,7 +32,7 @@
 .bara {
     background-color: rgb(56, 67, 122);
     max-width: 2500px;
-    height: 4.6px;
+    height: 7px;
     margin: auto;
 }
 
@@ -90,25 +90,34 @@
     height: 67.7px;
     border: 1.33px solid #ffffff00;
     padding: 33.3px; 
-    padding-left: 46.7px;
+    padding-left: -200px;
     padding-right: 13.4px;
     border-radius: 16.7px;
     margin-top: 46.7px;
     margin-left: 15%;
     box-shadow: 0 5.33px 10.3px 0 rgba(0,0,0,0.24);
-    font-size: 13.4px;
+    font-size: 15x;
     font-weight: bold;
     font-family: Georgia, serif;
     text-shadow: 0.06px 0.06px 0.06px #000000;
 }
 
-.senga input[type=text] {
+.SearchBoxa label {
+    font-size: 15x;
+    font-weight: bold;
+    font-family: Georgia, serif;
+    text-shadow: 0.06px 0.06px 0.06px #000000;
+    margin-left: 0px;
+}
+
+.senga .sero {
     padding: 6.7px;
     font-size: 11.3px;
     border: 0.67px solid rgb(11, 47, 85);
     width: 450px;
-    height: 23px;
+    height: 25px;
     margin-top: 10px;
+    margin-left: 0px;
     background: rgba(255, 254, 254, 0.735);
 }
   
@@ -320,8 +329,9 @@
 
 .Action input {
     width: 67.7px;
-    height: 17px;
+    height: 15px;
     border: none;
+    margin-left: 0px;
 }
 
 .Popup {

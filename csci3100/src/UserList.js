@@ -244,7 +244,7 @@ export default function UserList() {
         <label>Search User : </label>
         <br />
         <form method="get" className="senga" onSubmit={handleSubmit}>
-          <input type="text" placeholder='input nothing to show all user...' onChange={(event) => {setKeyword(event.target.value);}}/>
+          <input className='sero' type="text" placeholder='input nothing to show all user...' onChange={(event) => {setKeyword(event.target.value);}}/>
           <button type='Submit' value="Search"></button>
         </form>
       </div>

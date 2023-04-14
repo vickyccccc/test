@@ -5,8 +5,10 @@ import Axios from "axios";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function User() {
+  const navigate = useNavigate();
   let params = useParams();
   const [userList, setUserList] = useState([]);
   const [courseList, setCourseList] = useState([]);
@@ -48,11 +50,7 @@ export default function User() {
     <div className="back">
       <meta charset="UTF-8" />
       <div className="box">
-        <button className="button CBroPage">
-          <a herf="SCourse.html">
-            <us className="Browse"></us>Course Browsing Page
-          </a>
-        </button>
+        <button className="CBroPage" onClick={() => navigate(`/UserCourse/${params.id}`)} ><us className="Browse"></us>Course Browsing Page</button>
         <div className="CUHK"> </div>
       </div>
       <div className="bar"></div>
@@ -104,13 +102,13 @@ export default function User() {
                   return (
                     <tr>
                       <th>
-                        <div className="Course">
+                        <div className="CCourse">
                           <details>
                             <summary>
                               {val.courseID} {val.name}
                               <button
                                 type="delete"
-                                className="button Dcourse"
+                                className="DDcourse"
                                 onClick={() =>
                                   dropCourse(val.courseID, val.capacity)
                                 }
@@ -119,6 +117,7 @@ export default function User() {
                               </button>
                             </summary>
                             <br />
+                            <br/>
                             <table className="Coursetab">
                               <tr>
                                 <th>Time</th>
